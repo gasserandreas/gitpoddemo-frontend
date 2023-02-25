@@ -10,17 +10,30 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import theme from './utils/theme';
 
+import SongsAPI from './apis/SongsAPI';
+import { APIContext } from './apis/useAPI';
+
+import { SongsContextProvider } from './pages/Songs/SongsContext';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const apis = {
+  SongsAPI: SongsAPI,
+};
+
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <APIContext.Provider value={{ apis }}>
+        <SongsContextProvider>
+          <CssBaseline />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </SongsContextProvider>
+      </APIContext.Provider>
     </ThemeProvider>
   </React.StrictMode>
 );
