@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
-import Layout from './Layout';
+import Layout from './components/Layout';
 
 import Songs from './pages/Songs';
 import About from './pages/About';
