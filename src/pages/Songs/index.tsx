@@ -1,7 +1,15 @@
-import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-const Songs = () => (
-  <div>Songs</div>
+import List from './list';
+import Details from './details';
+import Add from './add';
+
+const Index = () => (
+  <Routes>
+    <Route index element={<List />} />
+    <Route path="add" element={<Add />} />
+    <Route path=":songId" element={<Details />} />
+  </Routes>
 );
 
-export default Songs;
+export default Index;
